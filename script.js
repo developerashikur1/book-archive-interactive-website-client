@@ -9,7 +9,11 @@ const booksCard = document.getElementById('books-card')
 const invalidInput = document.getElementById('invalid-input')
 const resultsLength = document.getElementById('results-length');
 
+// spinner
+const spinner = document.getElementById('spinner');
 
+// no result
+const noResult = document.getElementById('no-result');
 
 // button handler
 inputButton.addEventListener('click', function(){
@@ -26,13 +30,23 @@ inputButton.addEventListener('click', function(){
     booksCard.textContent='';
     resultsLength.textContent='';
     invalidInput.classList.add('d-none');
+    noResult.textContent='';
 
 
-        // get books
-        const url =(`https://openlibrary.org/search.json?q=${input}`);
-        fetch(url)
+        fetch(`https://openlibrary.org/search.json?q=${input}`)
         .then(res => res.json())
-        .then(data => displayBookName(data.docs))
+        .then(data =>{
+            if(data.numFound === 0){
+                spinner.classList.add('d-none');
+                noResult.innerHTML=`<h5 class="text-danger">No Results Found!!!</h5>`;
+                return
+
+            }
+            else{
+                displayBookName(data.docs)
+            }
+        })
+        spinner.classList.remove('d-none');
    
 });
 
@@ -48,15 +62,16 @@ const displayBookName = books =>{
                     <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title mb-3"><strong>${book.title}</strong></h5>
-                      <p class="card-text">Author name: <strong><i>${book.author_name[0]}</strong></i></p>
-                      <p class="card-text">Author publisher: <strong><i>${book.publisher[0]}</strong></i></p>
+                      <p class="card-text">Author name: <strong><i>${book.author_name ? book.author_name[0] : 'N/A'}</strong></i></p>
+                      <p class="card-text">Author publisher: <strong><i>${book.publisher ? book.publisher[0] :'N/A'}</strong></i></p>
                       <p class="card-text">First publish: <strong><i>${book.first_publish_year}</strong></i></p>
                     </div>
                 </div>
         `;    
         // get total book of total results
         const clame =document.getElementsByClassName('col');
-        
+        spinner.classList.add('d-none');
+
         // show total book of total results
         resultsLength.innerHTML = `<h4 class="mb-5 text-center">Found Results: <span class="text-danger"><strong>${clame.length+1}</strong></span></h4>`;
         booksCard.appendChild(div);

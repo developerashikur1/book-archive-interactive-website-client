@@ -15,6 +15,7 @@
         <h1>Search Your Favourite Book</h1>
     </header>
 
+    
     <!-- main section -->
     <main>
 
@@ -27,17 +28,27 @@
 
               <!-- invalid error -->
               <div id="invalid-input" class="text-center d-none">
-                    <p>Invalid input..</p>
+                    <h6 class="text-danger">Invalid input..</h6>
               </div>
               
               <hr class=" border border-3 border-secondery my-5 py-1 mx-auto">
         </section>
 
+
         <!-- Book Cards section -->
         <section class="container">
-
+        <!-- spinner -->
+        <div id="spinner" class="d-none text-center">
+            <div class="spinner-grow text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </div>
             <!-- show results -->
-            <div id="results-length" class="pb-">
+            <div id="results-length" class="pb-5">
+            </div>
+
+            <!-- no result found -->
+            <div id="no-result" class="text-center">
             </div>
 
             <!-- Book cards -->
