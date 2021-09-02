@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Book Archive</title>
+</head>
+<body>
+    <!-- header section -->
+    <header class="container p-5 text-center">
+        <h1>Search Your Favourite Book</h1>
+    </header>
+
+    <!-- main section -->
+    <main>
+
+        <!-- Search input section -->
+        <section class="container">
+            <div class="input-group mb-3 w-50 mx-auto">
+                <input id="user-input" type="text" class="form-control" placeholder="Search book name hare..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="input-button">Button</button>
+              </div>
+
+              <!-- invalid error -->
+              <div id="invalid-input" class="text-center d-none">
+                    <p>Invalid input..</p>
+              </div>
+              
+              <hr class=" border border-3 border-secondery my-5 py-1 mx-auto">
+        </section>
+
+        <!-- Book Cards section -->
+        <section class="container">
+
+            <!-- show results -->
+            <div id="results-length" class="pb-">
+            </div>
+
+            <!-- Book cards -->
+            <div id="books-card" class="row row-cols-1 row-cols-md-4 g-4">
+              </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- Bootstrap script link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- internal script link -->
+    <script src="script.js"></script>
+</body>
+</html>
