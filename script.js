@@ -63,7 +63,7 @@ const displayBookName = books =>{
                     <div class="card-body">
                       <h5 class="card-title mb-3"><strong>${book.title}</strong></h5>
                       <p class="card-text">Author name: <strong><i>${book.author_name ? book.author_name[0] : 'N/A'}</strong></i></p>
-                      <p class="card-text">Author publisher: <strong><i>${book.publisher ? book.publisher[0] :'N/A'}</strong></i></p>
+                      <p class="card-text">Publisher: <strong><i>${book.publisher ? book.publisher[0] :'N/A'}</strong></i></p>
                       <p class="card-text">First publish: <strong><i>${book.first_publish_year}</strong></i></p>
                     </div>
                 </div>
