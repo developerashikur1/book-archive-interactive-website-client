@@ -21,7 +21,7 @@ inputButton.addEventListener('click', function(){
         return
     };
 
-
+    // all content vanish
     searchInput.value = '';
     booksCard.textContent='';
     resultsLength.textContent='';
@@ -41,11 +41,6 @@ inputButton.addEventListener('click', function(){
 //display books
 const displayBookName = books =>{
     books.forEach(book => {
-        if(!book.title){
-        resultsLength.innerText='No results found !!!'
-            return
-        };
-
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -57,11 +52,14 @@ const displayBookName = books =>{
                       <p class="card-text">Author publisher: <strong><i>${book.publisher[0]}</strong></i></p>
                       <p class="card-text">First publish: <strong><i>${book.first_publish_year}</strong></i></p>
                     </div>
-                  </div>
-        `;
+                </div>
+        `;    
+        // get total book of total results
+        const clame =document.getElementsByClassName('col');
         
-        resultsLength.innerHTML = `<h4>Found Results: <strong>${books.length}</strong></h4>`;
+        // show total book of total results
+        resultsLength.innerHTML = `<h4 class="mb-5 text-center">Found Results: <span class="text-danger"><strong>${clame.length+1}</strong></span></h4>`;
         booksCard.appendChild(div);
-             
+        
     });
 };
